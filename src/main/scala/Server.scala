@@ -16,8 +16,6 @@ import scala.util.Try
 
 object Server extends App {
 
-  import ComponentFactory._
-
   val instanceId = java.util.UUID.randomUUID.toString
   implicit val timeout: Timeout = 3.seconds
 
