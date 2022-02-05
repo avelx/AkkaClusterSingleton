@@ -2,10 +2,11 @@ package actors
 
 import akka.actor.typed.scaladsl.Behaviors
 import akka.actor.typed.{ActorRef, Behavior}
+import utils.SerializableMessage
 
 object Aggregator {
   val actorUUId : String = java.util.UUID.randomUUID.toString
-  sealed trait AggCmd
+  sealed trait AggCmd extends SerializableMessage
 
   case object Add extends AggCmd
   final case class GetStatus(replyTo: ActorRef[Int]) extends AggCmd
